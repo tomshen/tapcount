@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tap Count</title>
+        <style>
+            * {
+                font-size: 72px;
+            }
+
+            div {
+                display: flex;
+            }
+
+            div span {
+                text-align: center;
+                user-select: none;
+                width: 50%;
+            }
+
+            div input {
+                margin-left: 10px;
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div><span id="count0" onclick="ev => createClickHandler(0)(ev)">0</span><input type=text/></div>
+        <div><span id="count1" onclick=createClickHandler(1)>0</span><input type=text/></div>
+        <div><span id="count2" onclick=createClickHandler(2)>0</span><input type=text/></div>
+        <div><span id="count3" onclick=createClickHandler(3)>0</span><input type=text/></div>
+        <div><span id="count4" onclick=createClickHandler(4)>0</span><input type=text/></div>
+        <div><span id="count5" onclick=createClickHandler(5)>0</span><input type=text/></div>
+    </body>
+    <script>
+    let createClickHandler = index => ev => {
+        let $counter = document.getElementById("count" + index);
+        $counter.innerHTML = parseInt($counter.innerHTML) + 1;
+    };
+    for (let i = 0; i < 6; i++) {
+        let $counter = document.getElementById("count" + i);
+        $counter.onclick = createClickHandler(i);
+    }
+    </script>
+</html>
